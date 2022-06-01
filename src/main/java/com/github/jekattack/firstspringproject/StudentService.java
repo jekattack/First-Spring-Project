@@ -11,22 +11,22 @@ import java.util.Map;
 @Service
 public class StudentService {
 
-    private StudentRepo studentRepo;
+    private final StudentRepo studentRepo;
 
     public StudentService(StudentRepo studentRepo){
         this.studentRepo = studentRepo;
     }
 
     public Collection<Student> getStudents(){
-        return studentRepo.getStudents();
+        return studentRepo.findAll();
     }
 
     public Student getStudent(String id){
-        return studentRepo.getStudent(id);
+        return studentRepo.findById(id).get();
     }
 
     public void addStudent(Student student){
-        studentRepo.addStudent(student);
+        studentRepo.save(student);
     }
 
 }

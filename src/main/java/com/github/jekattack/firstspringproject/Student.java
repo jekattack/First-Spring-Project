@@ -7,7 +7,12 @@ public class Student {
     private String name;
     private String id = UUID.randomUUID().toString();
 
-    public void setName() {
+    public Student(String name) {
+        this.name = name;
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
